@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="xy">
+    <file>logo_dadep_eslogan.svg</file>
+    <file>logo_dadep_negro.svg</file>
+  </qresource>
+</RCC>

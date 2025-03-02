@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>634</width>
+    <height>441</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inicio de sesion</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>340</y>
+     <width>201</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/xy/logo_dadep_negro.svg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>20</y>
+     <width>311</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Text</family>
+     <pointsize>17</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>INICIO DE SESIÓN</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>100</y>
+     <width>311</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Text</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Usuario:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>170</y>
+     <width>311</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable Text</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Contraseña:</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtUser">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>110</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txtPwd">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>180</y>
+     <width>231</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnLogin">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>240</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Variable</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(228, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Acceder</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblMesaggeLogin">
+   <property name="geometry">
+    <rect>
+     <x>464</x>
+     <y>90</y>
+     <width>141</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>mensaje</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../assets/image-1.qrc"/>
+ </resources>
+ <connections/>
+</ui>
