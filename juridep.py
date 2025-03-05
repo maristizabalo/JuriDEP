@@ -6,7 +6,7 @@
 # db.close()
 
 from PyQt6.QtWidgets import QApplication
-from gui.login import Login
+from gui.controllers.login import Login
 
 class JuriDEP():
     def __init__(self):
