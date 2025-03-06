@@ -82,13 +82,13 @@ class Ldap:
   def login_user(self, username, password):
 
     if not AUTH_ENABLED:
-      return True, "Conexión de prueba"
+      return True, "Conexión de prueba", {}
 
     user = self.search_exact_user(username)
     if not user:
-      return False, "No se encontró el usuario en el LDAP"
+      return False, "No se encontró el usuario en el LDAP", {}
     elif not user['activo']:
-      return False, "El usuario se encuentra inactivo en el LDAP"
+      return False, "El usuario se encuentra inactivo en el LDAP", {}
 
     # loguear usuario
     user_format = USER_FORMAT.format(username)
@@ -103,14 +103,14 @@ class Ldap:
     try:
       connection.bind()
       connection.unbind()
-      return True, "Conexión exitosa"
+      return True, "Conexión exitosa", user
     except Exception as err:
       print(err)
       data_match = re.search("data\s\d+\w+", err.message)
       err_data = data_match.group().split(" ")[1] if data_match is not None else "0" # 0 -> cod. error desconocido
       error = CodigoAutenticacionLdapEnum.search_status_code_data(err_data)
 
-      return False, error.descripcion
+      return False, error.descripcion, {}
 
 
   def search_exact_user(self, username):
