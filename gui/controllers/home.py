@@ -1,28 +1,39 @@
+import pickle
+import os
 from PyQt6 import uic
-from PyQt6.QtWidgets import QTableView, QMainWindow
-from PyQt6.QtGui import QStandardItemModel, QStandardItem
+from PyQt6.QtWidgets import QMainWindow
+
+SESSION_FILE = "session.pkl"  # Archivo de sesión
 
 class Home(QMainWindow):
     def __init__(self):
         super().__init__()
         self.home = uic.loadUi("gui/views/home.ui", self)
-        self.populate_table()
+
+        # Cargar sesión del usuario
+        session_data = self.get_session_data()
+        if session_data:
+            nombre_completo = session_data['user_data'].get('nombre_completo', 'Usuario')
+            self.home.helloNameLabel.setText(f"Hola, {nombre_completo}!")  # Actualizar QLabel
+
+        # Conectar el botón exitBtn con la función logout
+        self.home.exitBtn.clicked.connect(self.logout)
+
         self.show()
-    
-    def populate_table(self):
-        data = [
-            ["715785", "PENAL", "2022-17968", "PENAL", "7/01/2022", "FISCALIA 136 INTERVENCIÓN TEMPRANA", "JOSE AGUSTÍN AVENDAÑO", "DADEP"],
-            ["715786", "CIVIL", "2023-10234", "CIVIL", "15/03/2023", "JUZGADO 12 CIVIL", "MARÍA GÓMEZ", "EMPRESA XYZ"],
-            ["715787", "LABORAL", "2021-56789", "LABORAL", "22/11/2021", "JUZGADO 5 LABORAL", "CARLOS PÉREZ", "JUAN PÉREZ"]
-        ]
+
+    def get_session_data(self):
+        """Obtiene los datos de la sesión si existe."""
+        if os.path.exists(SESSION_FILE):
+            with open(SESSION_FILE, "rb") as f:
+                return pickle.load(f)
+        return None
+
+    def logout(self):
+        """Elimina la sesión y vuelve a la pantalla de login."""
+        if os.path.exists(SESSION_FILE):
+            os.remove(SESSION_FILE)  # Eliminar archivo de sesión
         
-        headers = ["ID", "JURISDICCIÓN", "PROCESO", "TIPO DE PROCESO", "FECHA DE PRESENTACION DE DEMANDA", "DESPACHO QUE ACTUALMENTE CONOCE EL PROCESO", "ABOGADO A CARGO", "DEMANDANTE / DENUNCIANTE"]
-        
-        model = QStandardItemModel(len(data), len(headers))
-        model.setHorizontalHeaderLabels(headers)
-        
-        for row_idx, row_data in enumerate(data):
-            for col_idx, cell_data in enumerate(row_data):
-                model.setItem(row_idx, col_idx, QStandardItem(cell_data))
-        
-        self.home.processTable.setModel(model)
+        self.close()  # Cerrar Home
+
+        from gui.controllers.login import Login  # importacion de manera diferida
+        self.login = Login()  # Abrir pantalla de login
