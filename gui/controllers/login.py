@@ -2,6 +2,7 @@ from PyQt6 import uic
 from PyQt6.QtWidgets import QLineEdit
 from utils.ldap import Ldap
 from database.connection import DatabaseConnection
+from gui.controllers.home import Home
 
 class Login():
     def __init__(self):
@@ -49,7 +50,11 @@ class Login():
                 
                 db.close()
 
-                #
+                #Abrir ventana principal de la aplicacion
+                # Cerrar la ventana de login y abrir Home
+                self.login.close()
+                self.home = Home()
+
         else:
             self.login.lblMesaggeLogin.setText(message)
     
